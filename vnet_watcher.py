@@ -105,7 +105,6 @@ class VnetWatcher(object):
 
             try:
                 print("Connection from %s." % str(client_address))
-                
                 while True:
                     data = connection.recv(32)
 
@@ -116,9 +115,10 @@ class VnetWatcher(object):
                     if data == 'client_close':
                         print("Connection closed.")
                         break
-
             finally:
                 connection.close()
+
+        sock.close()
 
     def showPorts(self):
         while True:
